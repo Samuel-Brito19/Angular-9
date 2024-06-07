@@ -1,0 +1,19 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "caneta bic",
+            "price": 5.89
+        },
+        {
+            "id": 2,
+            "name": "mc book",
+            "price": 12000
+        },
+        {
+            "id": 3,
+            "name": "Airpod",
+            "price": 300
+        }
+    ]
+}
