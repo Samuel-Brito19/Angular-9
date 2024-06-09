@@ -3,7 +3,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list'
 import { HomeComponent } from '../../../views/home/home.component';
 import { ProductCrudComponent } from '../../../views/product-crud/product-crud.component';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 
 @Component({
@@ -15,4 +15,15 @@ import { RouterOutlet } from '@angular/router';
 })
 export class NavComponent {
 
+  constructor(private router: Router) {
+
+  }
+
+  navigateToProducts(): void {
+    this.router.navigate(['products'])
+  }
+
+  navigateToHome(): void {
+    this.router.navigate([''])
+  }
 }

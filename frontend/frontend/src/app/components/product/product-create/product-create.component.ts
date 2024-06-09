@@ -1,24 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import {MatButtonModule} from '@angular/material/button'
 import { Router } from '@angular/router';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Product } from '../product.model';
-
+import {FormsModule } from '@angular/forms'
+import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatInputModule} from '@angular/material/input'
+import { MatCardModule } from  '@angular/material/card';
+import { BrowserModule } from '@angular/platform-browser';
 @Component({
   selector: 'app-product-create',
   standalone: true,
-  imports: [MatButtonModule],
+  imports: [MatButtonModule, BrowserModule, FormsModule,MatFormFieldModule, MatInputModule,MatCardModule],
   templateUrl: './product-create.component.html',
   styleUrl: './product-create.component.css',
   providers: [HttpClient]
 })
+
 export class ProductCreateComponent implements OnInit {
-  
-  
   product: Product = {
-    name: 'Computer',
-    price: 12000,
+    name: '',
+    price: null,
   }
 
   constructor (private productService: ProductService, private router:Router) {}
