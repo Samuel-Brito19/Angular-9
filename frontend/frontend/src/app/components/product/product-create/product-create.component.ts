@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import {MatButtonModule} from '@angular/material/button'
 import { Router } from '@angular/router';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Product } from '../product.model';
 
 @Component({
@@ -11,9 +11,11 @@ import { Product } from '../product.model';
   imports: [MatButtonModule],
   templateUrl: './product-create.component.html',
   styleUrl: './product-create.component.css',
-  providers: []
+  providers: [HttpClient]
 })
 export class ProductCreateComponent implements OnInit {
+  
+  
   product: Product = {
     name: 'Computer',
     price: 12000,
@@ -27,10 +29,14 @@ export class ProductCreateComponent implements OnInit {
 
   createProduct(): void {
 
-    this.productService.create(this.product)
+  this.productService.create(this.product).subscribe(() => {
     this.productService.showMessage('Operação executada com sucesso')
-  }
+    this.router.navigate(['/products'])
 
+  }) 
+
+  }
+    
   cancel(): void {
 
     this.router.navigate(['/products'])
