@@ -8,11 +8,10 @@ import {FormsModule } from '@angular/forms'
 import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatInputModule} from '@angular/material/input'
 import { MatCardModule } from  '@angular/material/card';
-import { BrowserModule } from '@angular/platform-browser';
 @Component({
   selector: 'app-product-create',
   standalone: true,
-  imports: [MatButtonModule, BrowserModule, FormsModule,MatFormFieldModule, MatInputModule,MatCardModule],
+  imports: [MatButtonModule, FormsModule,MatFormFieldModule, MatInputModule,MatCardModule],
   templateUrl: './product-create.component.html',
   styleUrl: './product-create.component.css',
   providers: [HttpClient]
