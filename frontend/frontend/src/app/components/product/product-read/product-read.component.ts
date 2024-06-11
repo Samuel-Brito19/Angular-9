@@ -3,6 +3,8 @@ import { Product } from '../product.model';
 import { ProductService } from '../product.service';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table'
+import { Router } from '@angular/router';
+
 
 import localePt from '@angular/common/locales/pt'
 import { registerLocaleData } from '@angular/common';
@@ -26,12 +28,16 @@ export class ProductReadComponent implements OnInit{
   products!: Product[];
   displayedColumns = ['id', 'name', 'price', 'action']
   
-  constructor (private productService: ProductService) {
+  constructor (private productService: ProductService, private router:Router) {
   }
   
   ngOnInit(): void {
     this.productService.read().subscribe(products => {
       this.products = products
     })
+  }
+
+  navigateToUpdate() {
+    this.router.navigate(['products/update/{{row.id}}'])
   }
 }
