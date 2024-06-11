@@ -1,11 +1,6 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "caneta bic",
-      "price": 5.89
-    },
-    {
       "id": "2",
       "name": "dell",
       "price": "2333"
@@ -21,9 +16,9 @@
       "price": "1000000"
     },
     {
-      "id": "e3fe",
-      "name": "mouse",
-      "price": "50"
+      "id": "3724",
+      "name": "CPU Nvidia",
+      "price": "3000"
     }
   ]
 }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar'
 import { Product } from './product.model';
-import { Observable, EMPTY } from 'rxjs';
+import { Observable, EMPTY, catchError, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +22,11 @@ export class ProductService {
   }
 
   create(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.baseURL, product)
+    return this.http.post<Product>(this.baseURL, product).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
   }
-
   read(): Observable<Product[]> {
     return this.http.get<Product[]>(this.baseURL)
   }
