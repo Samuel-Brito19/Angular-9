@@ -4,6 +4,7 @@ import { ProductService } from '../product.service';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table'
 import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 
 import localePt from '@angular/common/locales/pt'
@@ -16,7 +17,7 @@ registerLocaleData(localePt)
 @Component({
   selector: 'app-product-read',
   standalone: true,
-  imports: [CommonModule, MatTableModule],
+  imports: [CommonModule, MatTableModule,RouterLink ],
   templateUrl: './product-read.component.html',
   styleUrl: './product-read.component.css',
   providers: [{
@@ -37,7 +38,4 @@ export class ProductReadComponent implements OnInit{
     })
   }
 
-  navigateToUpdate() {
-    this.router.navigate(['products/update/{{row.id}}'])
-  }
 }
