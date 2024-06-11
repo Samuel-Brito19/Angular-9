@@ -37,7 +37,7 @@ const EXAMPLE_DATA: Product[] = [
  */
 export class ProductRead2DataSource extends DataSource<Product> {
   data: Product[] = EXAMPLE_DATA;
-  paginator: MatPaginator | undefined;
+  paginator!: MatPaginator;
   sort!: MatSort;
 
   constructor() {
